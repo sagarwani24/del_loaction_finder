@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * DHL location finder theme implementation to display list of locations.
+ *
+ * Available variables:
+ * - locations: locations array provided bu DHL location finder api.
+ * - empty_value: message for no locations found.
+ */
+#}
+
+{% if locations|length > 0 %}
+    {% for location in locations %}
+        <div class="dhl-location">
+            <ul>
+            {% for label, locationField in location %}
+                <li>
+                {% if locationField is iterable %}
+                    <label>{{ label }}</label>:
+                    <ul>
+                    {% for itemLabel, fieldItem in locationField %}
+                        <li>
+                            <label>{{ itemLabel }}</label>: <span>{{ fieldItem }}</span>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <label>{{ label }}</label>: <span>{{ locationField }}</span>
+                {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+{% else %}
+    {% if empty_value is not null %}
+        {{ empty_value }}
+    {% else %}
+        <p>No result found</p>
+    {% endif %}
+{% endif %}

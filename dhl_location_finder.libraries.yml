@@ -1,0 +1,4 @@
+application-style:
+  css:
+    layout:
+      css/dhl-location-finder.css: {}

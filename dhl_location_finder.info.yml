@@ -1,0 +1,6 @@
+name: DHL Location Finder
+description: Use DHL location finder api to display DHL office on requested location.
+package: Custom
+type: module
+core_version_requirement: ^9.5 || ^10
+configure: dhl_location_finder.settings

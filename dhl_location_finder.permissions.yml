@@ -1,0 +1,7 @@
+access dhl config:
+  title: 'Administrate DHL location finder api configuration'
+  description: 'Access DHL location finder api key configuration form.'
+
+access dhl application:
+  title: 'Acess DHL location finder application'
+  description: 'Acess DHL location finder application.'

@@ -9,7 +9,7 @@ dhl_location_finder.settings:
 dhl_location_finder.find_location:
   path: '/admin/structure/dhl-settings'
   defaults:
-    _controller: 'Drupal\dhl_location_finder\Controller\LocationFinder::show_locations'
+    _controller: 'Drupal\dhl_location_finder\Controller\LocationFinder::showLocations'
     _title: 'DHL location finder'
   requirements:
     _permission: 'access dhl application'

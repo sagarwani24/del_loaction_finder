@@ -22,7 +22,7 @@ function dhl_location_finder_help($route_name, RouteMatchInterface $route_match)
       to access application. You need an api key to run this application, you can create your app for api key 
       at <a href=":portalurl">DHL API developer portal</a>.', [
         ':appurl' => $app_url->toString(),
-        ':portalurl' => 'https://developer.dhl.com'
+        ':portalurl' => 'https://developer.dhl.com',
       ]) . '</p>';
       return $output;
   }
@@ -36,14 +36,14 @@ function dhl_location_finder_theme($existing, $type, $theme, $path) {
     'dhl_locations' => [
       'variables' => [
         'locations' => NULL,
-        'empty_value' => NULL
-      ]
+        'empty_value' => NULL,
+      ],
     ],
   ];
 }
 
 /**
- * Implement theme_preprocess_dhl_locations
+ * Implement theme_preprocess_dhl_locations.
  */
 function dhl_location_finder_preprocess_dhl_locations(&$variables) {
   $variables['#attached']['library'][] = 'dhl_location_finder/application-style';

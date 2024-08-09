@@ -6,7 +6,7 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implement form for location finder
+ * Implement form for location finder.
  */
 class LocationFinderForm extends FormBase {
 
@@ -28,26 +28,26 @@ class LocationFinderForm extends FormBase {
         'class' => [
           'container-inline',
         ],
-        'open' => TRUE
+        'open' => TRUE,
       ],
     ];
     $form['container']['country'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Country'),
       '#required' => TRUE,
-      '#size' => 30
+      '#size' => 30,
     ];
     $form['container']['city'] = [
       '#type' => 'textfield',
       '#title' => $this->t('City'),
       '#required' => TRUE,
-      '#size' => 30
+      '#size' => 30,
     ];
     $form['container']['post_code'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Post Code'),
       '#required' => TRUE,
-      '#size' => 30
+      '#size' => 30,
     ];
     $form['container']['submit'] = [
       '#type' => 'submit',

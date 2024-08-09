@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- *
+ * Implement config form for dhl location finder api key.
  */
 class ConfigForm extends ConfigFormBase {
 
@@ -34,7 +34,7 @@ class ConfigForm extends ConfigFormBase {
       '#title' => $this->t('API Key'),
       '#default_value' => $config->get('api_key'),
       '#description' => $this->t("API key from DHL. If you dont have an api key please visit <a target='_blank' href=':url'>DHL</a> to get your api key.", [
-        ':url' => 'https://developer.dhl.com/user/login?action=create-app'
+        ':url' => 'https://developer.dhl.com/user/login?action=create-app',
       ]),
       '#required' => TRUE,
     ];

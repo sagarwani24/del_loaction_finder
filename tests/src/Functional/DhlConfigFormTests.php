@@ -6,34 +6,47 @@ use Drupal\Tests\BrowserTestBase;
 
 /**
  * Tests for the dhl location finder module.
+ *
  * @group dhl
  */
 class DhlConfigFormTests extends BrowserTestBase {
   /**
-   * Modules to install
+   * Modules to install.
    *
    * @var array
    */
-  protected static $modules = array('dhl_location_finder');
+  protected static $modules = ['dhl_location_finder'];
+
+  /**
+   * Theme to install and set as default theme.
+   *
+   * @var string
+   */
   protected $defaultTheme = 'claro';
 
-  // A simple user
+  /**
+   * A simple user.
+   *
+   * @var \Drupal\user\UserInterface
+   */
   private $user;
 
-  // Perform initial setup tasks that run before every test method.
+  /**
+   * Perform initial setup tasks that run before every test method.
+   */
   public function setUp(): void {
     parent::setUp();
-    $this->user = $this->DrupalCreateUser(array(
+    $this->user = $this->DrupalCreateUser([
       'access dhl config',
       'access dhl application',
-    ));
+    ]);
   }
 
   /**
    * Tests that the config page can be reached.
    */
   public function testConfigPageExists() {
-    // Login
+    // Login.
     $this->drupalLogin($this->user);
 
     // Generator test:
@@ -45,16 +58,16 @@ class DhlConfigFormTests extends BrowserTestBase {
    * Tests the config form.
    */
   public function testConfigForm() {
-    // Login
+    // Login.
     $this->drupalLogin($this->user);
 
-    // Access config page
+    // Access config page.
     $this->drupalGet('admin/config/services/dhl-settings');
     $this->assertSession()->statusCodeEquals(200);
-    // Test the form elements exist
+    // Test the form elements exist.
     $config = \Drupal::config('dhl_location_finder.settings');
-    
-    // Test form submission
+
+    // Test form submission.
     $this->submitForm(
       [
         'api_key' => 'demo-key',
@@ -73,4 +86,5 @@ class DhlConfigFormTests extends BrowserTestBase {
       'demo-key'
     );
   }
+
 }

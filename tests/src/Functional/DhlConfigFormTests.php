@@ -64,15 +64,13 @@ class DhlConfigFormTests extends BrowserTestBase {
     // Access config page.
     $this->drupalGet('admin/config/services/dhl-settings');
     $this->assertSession()->statusCodeEquals(200);
-    // Test the form elements exist.
-    $config = \Drupal::config('dhl_location_finder.settings');
 
     // Test form submission.
     $this->submitForm(
       [
         'api_key' => 'demo-key',
       ],
-      t('Save configuration'),
+      $this->t('Save configuration'),
     );
     $this->assertSession()->responseContains(
       'The configuration options have been saved.',
